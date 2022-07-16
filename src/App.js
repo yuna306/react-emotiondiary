@@ -53,9 +53,36 @@ export const DiaryStateContext = React.createContext();
 //onCreate,onRemove,onEdit 함수전달 Context
 export const DiaryDispatchContext = React.createContext();
 
+const dummyData = [
+  {
+    id: 1,
+    emotion: 1,
+    content: "오늘의 일기 1번",
+    date: 1657867605411,
+  },
+  {
+    id: 2,
+    emotion: 2,
+    content: "오늘의 일기 2번",
+    date: 1657867618961,
+  },
+  {
+    id: 3,
+    emotion: 3,
+    content: "오늘의 일기 3번",
+    date: 1657867624579,
+  },
+  {
+    id: 4,
+    emotion: 4,
+    content: "오늘의 일기 4번",
+    date: 1657867637119,
+  },
+];
+
 function App() {
   //DiaryStateContext.Provider로 data전달
-  const [data, dispatch] = useReducer(reducer, []);
+  const [data, dispatch] = useReducer(reducer, dummyData);
 
   // 아이디 값 AUTO INCREMENT
   const dataId = useRef(0);
@@ -89,7 +116,6 @@ function App() {
   };
 
   /**
-   *
    * DiaryStateContext.Provider : data state를 공급
    * DiaryDispatchContext.Provider : data state를 변화시킬 수 있는 dispatch 함수들을 객체로 공급
    */
