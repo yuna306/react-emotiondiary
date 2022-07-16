@@ -96,3 +96,97 @@ header .head_btn_right {
 /* header button {
   font-family: 'Nanum Pen Script';
 } */
+
+/* diary List */
+.DiaryList .menu_wrapper {
+  margin-top: 20px;
+  margin-bottom: 30px;
+  display: flex; /*셀렉트박스 2개 버튼 한줄로 */
+  justify-content: space-between; /*왼쪽 div와 오른쪽 div 사이가 완전히 벌어짐*/
+  align-items: center;
+}
+
+.DiaryList .menu_wrapper .right_col {
+  flex-grow: 1; /*남은 영역 전체를 가지게 됨*/
+}
+
+.DiaryList .menu_wrapper .right_col button {
+  width: 100%;
+}
+
+.DiaryList .ControlMenu {
+  margin-right: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #ececec;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-family: "Gowun Dodum", sans-serif;
+  font-size: 18px;
+}
+
+/* Diary Item */
+.DiaryItem {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #e2e2e2;
+  display: flex;
+  justify-content: space-between;
+}
+
+/*동그란 감정이미지 바깥으로 네모박스 생김*/
+.DiaryItem .emotion_img_wrapper {
+  cursor: pointer;
+  min-width: 120px;
+  height: 80px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+}
+
+/*네모박스를 이미지와 같은색상으로 채워버림*/
+.DiaryItem .emotion_img_wrapper_1 {
+  background-color: #64c964;
+}
+
+.DiaryItem .emotion_img_wrapper_2 {
+  background-color: #9dd772;
+}
+
+.DiaryItem .emotion_img_wrapper_3 {
+  background-color: #fdce17;
+}
+
+.DiaryItem .emotion_img_wrapper_4 {
+  background-color: #fd8446;
+}
+
+.DiaryItem .emotion_img_wrapper_5 {
+  background-color: #fd565f;
+}
+
+/*이미지가 박스안으로 조금더 자연스럽게 들어오게*/
+.DiaryItem .emotion_img_wrapper img {
+  width: 50%;
+}
+
+.DiaryItem .info_wrapper {
+  cursor: pointer;
+  flex-grow: 1;
+  margin-left: 25px;
+}
+
+.DiaryItem .diary_date {
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+.DiaryItem .diary_content_preview {
+  font-size: 16px;
+}
+
+/* 화면이 줄어든다고 너무 줄어들면 안되니까  */
+.DiaryItem .btn_wrapper {
+  min-width: 70px;
+}

@@ -1,12 +1,19 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+
 import MyButton from "./MyButton";
+import DiaryItem from "./DiaryItem";
+
 //여러 셀렉트 박스 옵션을 컨트롤
 // onChange : select 변화 감지
 //optionList : select태그안에 들어갈 옵션 아래 sortOptionList, filterOptionList
 const ControlMenu = ({ value, onChange, optionList }) => {
   return (
-    <select value={value} onChange={(e) => onChange(e.target.value)}>
+    <select
+      className="ControlMenu"
+      value={value}
+      onChange={(e) => onChange(e.target.value)}
+    >
       {optionList.map((it, idx) => (
         <option key={idx} value={it.value}>
           {it.name}
@@ -77,32 +84,42 @@ const DiaryList = ({ diaryList }) => {
   };
 
   return (
-    <div>
-      {/* 최신/오래된 순 정렬 */}
-      <ControlMenu
-        value={sortType}
-        onChange={setSortType}
-        optionList={sortOptionList}
-      />
+    <div className="DiaryList">
+      <div className="menu_wrapper">
+        <div className="left_col">
+          {/* 최신순 / 오래된 순 정렬 */}
+          <ControlMenu
+            value={sortType}
+            onChange={setSortType}
+            optionList={sortOptionList}
+          />
 
-      {/* 좋음,나쁨 감정 정렬 */}
-      <ControlMenu
-        value={filter}
-        onChange={setFilter}
-        optionList={filterOptionList}
-      />
+          {/* 감정에 따른 정렬 */}
+          <ControlMenu
+            value={filter}
+            onChange={setFilter}
+            optionList={filterOptionList}
+          />
+        </div>
+        <div className="right_col">
+          {/* 일기쓰기 버튼 */}
+          <MyButton
+            type={"positive"}
+            text={"새 일기쓰기"}
+            onClick={() => navigate("/new")}
+          />
+        </div>
+      </div>
 
-      {/* 일기쓰기 버튼 */}
-      <MyButton
-        type={"positive"}
-        text={"새 일기쓰기"}
-        onClick={() => navigate("/new")}
-      />
-
-      {getProcessedDiaryList().map((it) => (
+      {/* DiaryItem컴포넌트로 분리      */}
+      {/* {getProcessedDiaryList().map((it) => (
         <div key={it.id}>
           {it.content} {it.emotion}
         </div>
+      ))} */}
+
+      {getProcessedDiaryList().map((it) => (
+        <DiaryItem key={it.id} {...it} />
       ))}
     </div>
   );
