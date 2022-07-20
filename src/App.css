@@ -93,9 +93,9 @@ header .head_btn_right {
   justify-content: end;
 }
 
-/* header button {
-  font-family: 'Nanum Pen Script';
-} */
+header button {
+  font-family: "Gowun Dodum", sans-serif;
+}
 
 /* diary List */
 .DiaryList .menu_wrapper {
@@ -189,4 +189,106 @@ header .head_btn_right {
 /* 화면이 줄어든다고 너무 줄어들면 안되니까  */
 .DiaryItem .btn_wrapper {
   min-width: 70px;
+}
+
+/* DiaryEditor */
+.DiaryEditor {
+}
+
+.DiaryEditor section {
+  margin-bottom: 40px;
+}
+
+.DiaryEditor h4 {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.DiaryEditor .input_date {
+  border: none;
+  border-radius: 5px;
+  background-color: #ececec;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+
+  cursor: pointer;
+  font-family: "Gowun Dodum", sans-serif;
+  font-size: 20px;
+}
+
+.DiaryEditor .emotion_list_wrapper {
+  display: flex;
+  grid-template-columns: repeat(5, auto);
+  gap: 2%;
+}
+
+.DiaryEditor textarea {
+  font-family: "Gowun Dodum", sans-serif;
+  font-size: 20px;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 200px;
+  resize: vertical; /*가로로는 늘릴 수 없도록*/
+  border: none;
+  border-radius: 5px;
+  background-color: #ececec;
+  padding: 20px; /*좌우상하 모두 20*/
+}
+
+.DiaryEditor .control_box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* EmotionItem */
+
+.EmotionItem {
+  cursor: pointer;
+  border-radius: 5px;
+  padding: 20px 0;
+  display: flex; /*새로로 배치되는 div를 가로로 바꿔줌*/
+  flex-direction: column; /*그런데 column 으로 해주면 그냥 세로로 유지됨 그래서 좋음 그럭저럭 같은 감정문구들이 이미지 아래로 배치될 수 있음 그럼 이걸 어떻게 가로로? 위에 .DiaryEditor .emotion_list_wrapper에서해줌 */
+  justify-content: center;
+  align-items: center;
+}
+
+.EmotionItem img {
+  width: 50%;
+  margin-bottom: 10px;
+}
+
+.EmotionItem span {
+  font-size: 18px;
+}
+
+.EmotionItem_off {
+  background-color: #ececec;
+}
+
+.EmotionItem_on_1 {
+  background-color: #64c964;
+  color: #fff;
+}
+
+.EmotionItem_on_2 {
+  background-color: #9dd722;
+  color: #fff;
+}
+
+.EmotionItem_on_3 {
+  background-color: #fdce17;
+  color: #fff;
+}
+
+.EmotionItem_on_4 {
+  background-color: #fd8446;
+  color: #fff;
+}
+
+.EmotionItem_on_5 {
+  background-color: #fd565f;
+  color: #fff;
 }
