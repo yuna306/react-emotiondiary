@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useCallback, useContext, useEffect, useRef, useState } from "react";
+import { DiaryDispatchContext } from "../App";
 
 import MyHeader from "./MyHeader";
 import MyButton from "./MyButton";
@@ -44,6 +45,8 @@ const DiaryEditor = ({ isEdit, originData }) => {
   const [content, setContent] = useState();
   const contentRef = useRef();
 
+  const { onCreate } = useContext(DiaryDispatchContext);
+
   const handleClickEmote = (emotion) => {
     setEmotion(emotion);
   };
@@ -53,6 +56,9 @@ const DiaryEditor = ({ isEdit, originData }) => {
       contentRef.current.focus();
       return;
     }
+
+    onCreate(date, content, emotion);
+    navigator("/", { replace: true }); //뒤로가기 막기
   };
 
   return (
